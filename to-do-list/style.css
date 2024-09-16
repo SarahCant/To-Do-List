@@ -1,0 +1,163 @@
+
+:root {
+    /* Farvepalette */
+    --clr_light: #fffff2;
+    --clr_dark: #6b591a;
+    --clr_yellow_main: #edd47d;
+    --clr_yellow_dark: #c3b069;
+    --clr_input: #f3ebd0;
+    --clr_input_txt: #b7a76f;
+    --clr_task: #998026;
+
+    /* Tyopgrafi */
+    --main_font: ofelia-text, sans-serif;
+
+    /* Skrift størrelser */
+    --l_font: clamp(1.7rem, 2vw, 2.2rem);
+
+}
+
+
+
+/* --- GENERAL STYLING --- */
+body {
+    max-width: 100%;
+    background: linear-gradient(135deg, #153677, #4e085f);
+}
+
+h1, h2, h3, p {
+    color: var(--clr_dark);
+    font-family: var(--main_font)
+}
+
+h1 {
+    font-size: var(--l_font);
+    font-weight: 300;
+}
+
+
+/* --- TO-DO LISTE STYLING --- */
+
+/* Outer og top */
+
+.todo_outer {
+    background-color: var(--clr_light);
+    width: 80vw;
+    max-width: 800px;
+    min-height: 60vh;
+    margin: 20vh auto;
+    border-radius: 25px;
+}
+
+.todo_inner{
+    padding: 1.5vh 3vw;
+
+}
+
+.todo_inner h1{
+    padding: 2vw;
+    color: var(--clr_task);
+}
+
+/* Input og tilføj knap */
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--clr_input);
+    border-radius: 30px;
+    padding-left: 2vw;
+    margin-bottom: 1vh;
+}
+
+.row input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 1vw;
+   color: var(--clr_input_txt);
+    font-size: 14px;
+}
+
+.row input::placeholder {
+    color: #b7a76f;
+    font-size: 14px;
+}
+
+.row button {
+    border: none;
+    outline: none;
+    padding: 2.5vh 6vw;
+    background: var(--clr_yellow_main);
+    color: var(--clr_light);
+    font-family: var(--main_font);  
+    letter-spacing: 0.2vw;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.row button:hover {
+    opacity: 0.8;
+}
+
+.todo_inner ul li {
+    list-style: none;
+    font-family: var(--main_font);
+    padding: 4vh 1vw 2.8vh 60px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px solid var(--clr_yellow_dark);
+    color: var(--clr_task);
+ 
+}
+
+.todo_inner ul li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(img/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 3vh;
+    left: 3vh;
+}
+
+
+.todo_inner ul li.checked {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.todo_inner ul li:hover {
+   opacity: 0.7;
+}
+
+
+.todo_inner ul li.checked::before {
+    background-image: url(img/checked.png);
+}
+
+/* Kryds styling */
+
+.todo_inner ul li span {
+    position: absolute;
+    right: 0;
+    top: 3vh;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    color: var(--clr_task);
+    border-radius: 50%;
+}
+
+.todo_inner ul li span:hover {
+    background: var(--clr_input);
+   color: var(--clr_dark);
+}
+
